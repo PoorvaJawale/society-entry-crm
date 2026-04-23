@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Premium Luxe JioGate Palette */
+  --primary-orange: #f37021;
+  --primary-orange-hover: #d9621b;
+  --primary-blue: #0d2a6a;
+  --bg-color: #f5f7f9;
+  --card-bg: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --text-inverse: #ffffff;
+  
+  --danger-red: #ef4444;
+  --warning-yellow: #f59e0b;
+  --success-green: #10b981;
+  
+  /* Smoother, richer shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.08);
+  
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --font-family: 'Inter', system-ui, sans-serif;
+  
+  /* Luxe transition smoothing */
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Ensure smooth scrolling overall */
+  scroll-behavior: smooth;
+}
+
+/* Base button styles */
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 12px 20px;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-large {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-green {
+  background-color: var(--primary-orange);
+  color: var(--text-inverse);
+}
+
+.btn-green:hover:not(:disabled) {
+  background-color: var(--primary-orange-hover);
+  box-shadow: 0 8px 24px rgba(243, 112, 33, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-red {
+  background-color: var(--danger-red);
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.btn-red:hover:not(:disabled) {
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #e5e7eb;
+  color: var(--text-main);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255,255,255,0.7);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: #f3f4f6;
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: var(--font-family);
+  transition: var(--transition);
+  color: var(--text-main);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary-orange);
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.1);
+}
+
+input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 20px 80px 20px; /* Leave space for sticky footer */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container {
+  max-width: 440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.grid-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .grid-list {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-pending {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--warning-yellow);
+}
+
+.status-approved {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success-green);
+}
+
+.status-rejected {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger-red);
+}
+
+/* Minimal Luxe Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Glassmorphism Effect */
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(229, 231, 235, 0.5);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+  z-index: 50;
+}
+
+.nav-item {
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 8px 12px;
+  border-radius: 12px;
+}
+
+.nav-item:hover {
+  color: var(--primary-blue);
+  background-color: rgba(13, 42, 106, 0.04);
+}
+
+.nav-item.active {
+  color: var(--primary-orange);
+}
+
+.nav-item svg {
+  width: 18px;
+  height: 18px;
+  transition: var(--transition);
+}
+
+.nav-item.active svg {
+  transform: scale(1.1);
+}
+
+.nav-item span {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(12px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-slide-up {
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
